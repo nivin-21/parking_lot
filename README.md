@@ -1,12 +1,16 @@
 # parking slot application:
 A small work for Parking Slot Application
 
-PreRequisites:
-ruby installed with version > 1.9.3
+Project Setup:
+
+ruby installed with version - 2.2.2
 
 Steps to Execute:
-Interactive Input:
-Command: ruby parking_lot.rb 
 
-File Input
-Command: ruby parking_lot.rb input.txt > output.txt
+Interactive Input:
+    
+    ./parking_lot
+
+File Input:
+
+    ./parking_lot input.txt > output.txt

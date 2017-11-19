@@ -1,15 +1,13 @@
+#!/usr/bin/ruby
 require './vehicle_detail'
-class ParkingLot
+class ParkingSlot
 
 parking_slots = []
 slot_count = 0
-current_count = 0
-while (true) do
-	input_command = gets.split(" ")
-	parking_lot_action = input_command[0]
-	case(parking_lot_action)
-		when slot_count == 0
-			puts "Create A Parking Slot First" 
+	while (true) do
+		input_command = gets.split(" ") rescue []
+		parking_lot_action = input_command[0].to_s
+		case(parking_lot_action)
 		when "create_parking_lot"
 			parking_slots = []
 			slot_count = input_command[1].to_i
@@ -54,14 +52,14 @@ while (true) do
 			puts "#{slot_numbers.join(', ')}"
 		when "slot_number_for_registration_number"
 			registration_number = input_command[1]
-			parking_slot = parking_slots.find {|slot| slot.registration_number == registration_number }
+			parking_slot = parking_slots.find {|slot| slot.occupied? && slot.registration_number == registration_number }
 			if !parking_slot.nil?
 				puts parking_slot.slot_number
 			else
 				puts "Not found"
 			end
-		when "exit"
-			exit(0)			
+		when "exit", ""
+			exit(0)						
 		else
 			puts "No Command Matched"
 		end
